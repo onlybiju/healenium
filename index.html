@@ -3,25 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Example</title>
+    <title>My Info Page</title>
 </head>
 <body>
-    <h1>Form Example</h1>
-    <form action="process_form.php" method="post">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required><br><br>
+    <h1>My Info Page</h1>
+    
+    <!-- Form to input user information -->
+    <form id="infoForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" required><br><br>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required><br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" required><br><br>
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" required><br><br>
+        <input type="text" id="city" required><br><br>
 
         <label for="address">Address:</label>
-        <textarea id="address" name="address" required></textarea><br><br>
+        <textarea id="address" required></textarea><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="button" value="Add My Info" onclick="addInfo()">
     </form>
+
+    <!-- Display user information here -->
+    <div id="infoDisplay"></div>
+
+    <script>
+        function addInfo() {
+            // Get the values entered by the user
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var city = document.getElementById("city").value;
+            var address = document.getElementById("address").value;
+
+            // Create a new div element to display the information
+            var infoDiv = document.createElement("div");
+            infoDiv.innerHTML = "<h2>Entered Info:</h2>" +
+                                "<p><strong>First Name:</strong> " + firstName + "</p>" +
+                                "<p><strong>Last Name:</strong> " + lastName + "</p>" +
+                                "<p><strong>City:</strong> " + city + "</p>" +
+                                "<p><strong>Address:</strong> " + address + "</p>";
+
+            // Append the div to the infoDisplay div
+            document.getElementById("infoDisplay").appendChild(infoDiv);
+
+            // Clear the form fields
+            document.getElementById("firstName").value = "";
+            document.getElementById("lastName").value = "";
+            document.getElementById("city").value = "";
+            document.getElementById("address").value = "";
+        }
+    </script>
 </body>
 </html>
-
