@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Example</title>
+  <title>Add My Info</title>
 </head>
 <body>
-    <h1>User Information</h1>
-    <form action="process_form.php" method="post">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required><br><br>
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" name="firstName"><br><br>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required><br><br>
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" name="lastName"><br><br>
 
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city" required><br><br>
+  <label for="city">City:</label>
+  <input type="text" id="city" name="city"><br><br>
 
-        <label for="address">Address:</label>
-        <textarea id="address" name="address" required></textarea><br><br>
+  <label for="address">Address:</label>
+  <input type="text" id="address" name="address"><br><br>
 
-        <input type="submit" value="Submit">
-    </form>
+  <button id="addButton">Add My Info</button>
+
+  <script>
+    document.getElementById("addButton").addEventListener("click", function() {
+      var firstName = document.getElementById("firstName").value;
+      var lastName = document.getElementById("lastName").value;
+      var city = document.getElementById("city").value;
+      var address = document.getElementById("address").value;
+
+      // Perform any action with the data, such as storing it or displaying it on the page
+
+      // Clear the input fields
+      document.getElementById("firstName").value = "";
+      document.getElementById("lastName").value = "";
+      document.getElementById("city").value = "";
+      document.getElementById("address").value = "";
+    });
+  </script>
 </body>
 </html>
